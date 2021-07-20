@@ -1,14 +1,15 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Новости");
+$APPLICATION->SetTitle("Разрешительная документация");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:news.list","banners",Array(
+
+<?$APPLICATION->IncludeComponent("bitrix:news.list","list_certificates",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => "9",
+        "IBLOCK_ID" => "12",
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
@@ -56,9 +57,5 @@ $APPLICATION->SetTitle("Новости");
         "AJAX_OPTION_ADDITIONAL" => ""
     )
 );?>
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/info_homepage.php"
-    )
-);?>
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
