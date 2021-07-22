@@ -15,7 +15,7 @@ $APPLICATION->SetTitle("Контакты");
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => "10",
+        "IBLOCK_ID" => "8",
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
