@@ -1,0 +1,1 @@
+тут будет информация о ценах и <a href="/summer-cump/voucher-cost">ссылка на раздел</a><br>

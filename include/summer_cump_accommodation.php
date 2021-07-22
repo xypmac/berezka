@@ -1,0 +1,1 @@
+тут будет описание о проживание и <a href="/summer-cump/accommodation">ссылка на раздел</a><br>

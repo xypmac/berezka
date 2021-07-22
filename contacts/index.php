@@ -6,16 +6,17 @@ $APPLICATION->SetTitle("Контакты");
         "AREA_FILE_SHOW" => "file",
         "PATH" => "/include/info_contacts.php"
     )
-);?>
+);
+?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.list","list_contacts",Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list","contacts",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => "10",
+        "IBLOCK_ID" => convertingCodeIntoId('contactslist'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
@@ -33,13 +34,13 @@ $APPLICATION->SetTitle("Контакты");
         "SET_META_KEYWORDS" => "N",
         "SET_META_DESCRIPTION" => "N",
         "SET_LAST_MODIFIED" => "Y",
-        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+        //"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
         "ADD_SECTIONS_CHAIN" => "Y",
         "HIDE_LINK_WHEN_NO_DETAIL" => "Y",
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "INCLUDE_SUBSECTIONS" => "Y",
-        "CACHE_TYPE" => "A",
+        "CACHE_TYPE" => "N",
         "CACHE_TIME" => "3600",
         "CACHE_FILTER" => "Y",
         "CACHE_GROUPS" => "Y",

@@ -2,14 +2,14 @@
 $APPLICATION->SetTitle("Разрешительная документация");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.list","list_certificates",Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list","certificates",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => "12",
+        "IBLOCK_ID" => convertingCodeIntoId('certificates'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
@@ -33,7 +33,7 @@ $APPLICATION->SetTitle("Разрешительная документация");
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "INCLUDE_SUBSECTIONS" => "Y",
-        "CACHE_TYPE" => "A",
+        "CACHE_TYPE" => "N",
         "CACHE_TIME" => "3600",
         "CACHE_FILTER" => "Y",
         "CACHE_GROUPS" => "Y",

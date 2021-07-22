@@ -2,14 +2,14 @@
 $APPLICATION->SetTitle("Прайсы");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.list","list_prices",Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list","prices",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => "11",
+        "IBLOCK_ID" => convertingCodeIntoId('prices'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
