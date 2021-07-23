@@ -2,7 +2,7 @@
 $APPLICATION->SetTitle("Прайсы");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.list","prices",Array(
+<?$APPLICATION->IncludeComponent("bitrix:news.list","certificates",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
