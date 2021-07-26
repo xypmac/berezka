@@ -4,7 +4,7 @@ $(document).ready(function() {
         clearWindow();
         $('.documents__fade').fadeIn(300);
         $('body').css({'overflow': 'hidden'});
-       $(this).children().clone().appendTo($('.documents__window'));
+       $(this).children('.documents__img-wrapper').clone().appendTo($('.documents__window'));
         
         return false;
     });
