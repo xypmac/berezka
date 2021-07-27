@@ -1,12 +1,222 @@
-div.news-list
-{
-	word-wrap: break-word;
+/*section comments */
+
+.section-comments {
+    margin: 0 auto;
+    background-color: #00acec;
+    padding-top: 40px;
 }
-div.news-list img.preview_picture
-{
-	float:left;
-	margin:0 4px 6px 0;
+
+.comments {
+    width: 80%;
+    margin: 0 auto;
+    background: transparent;
+    position: relative;
+    margin-bottom: 30px;
 }
-.news-date-time {
-	color:#486DAA;
+
+.comments__title {
+    margin-left: 11%;
+}
+
+.comments__title-text {
+    color: #fff;
+}
+
+.comments__title-line {
+    background-color: #fff;
+}
+
+.comments__item {
+    background: transparent;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comments__item .comment {
+    background: #fff;
+    padding: 20px 15px;
+    border-radius: 25px;
+    min-height: 40vh;
+}
+
+.comments__item .comment__text {
+    font-size: .7rem;
+    line-height: 1.3;
+}
+
+.comments__item .comment__text p {
+    margin-bottom: 10px;
+}
+
+.comments__item .comment__text::before {
+    content: open-quote;
+    quotes: "“" "”";
+    display: block;
+    height: 30px;
+    font-family: 'ArialRoundedBold';
+    font-size: 40px;
+    line-height: 1;
+    color: #b1b1b1;
+    font-weight: bolder;
+}
+
+.comments__item .comment__link {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: .7rem;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.comments__item .comment__link::after {
+    content: close-quote;
+    quotes: "“" "”";
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-family: 'ArialRoundedBold';
+    font-size: 40px;
+    color: #b1b1b1;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+}
+
+.comments__item .comment__name,
+.comments__item .comment__date {
+    line-height: 1.3;
+    font-size: .7rem;
+}
+
+.comments__item .comment__date {
+    margin-bottom: 20px;
+}
+
+.comments .arrows-container {
+    position: absolute;
+    top: 40%;
+}
+
+.comments .arrows-container-right {
+    right: -7%;
+}
+
+.comments .arrows-container-left {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    left: -7%;
+}
+
+@media (max-width: 1199.98px) {
+    .comments {
+        width: 90%;
+    }
+    .comments__title {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .comments {
+        width: 95%;
+    }
+    .comments__item {
+        padding: 5px;
+    }
+    .comments .arrows-container-right {
+        right: -8%;
+    }
+    .comments .arrows-container-left {
+        left: -8%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .comments {
+        width: 100%;
+    }
+    .comments__item {
+        padding: 5px;
+    }
+    .comments .arrows-container-right {
+        right: -6%;
+    }
+    .comments .arrows-container-left {
+        left: -6%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .comments {
+        width: 70%;
+    }
+    .comments__title {
+        margin-left: 5%;
+    }
+    .comments__item {
+        padding: 30px;
+    }
+    .comments .arrows-container-right {
+        right: -15%;
+    }
+    .comments .arrows-container-left {
+        left: -15%;
+    }
+}
+
+@media (max-width: 450px) {
+    .comments {
+        width: 80%;
+    }
+    .comments__title {
+        margin-left: 15%;
+    }
+    .comments__title-line {
+        width: 30%;
+    }
+    .comments__item {
+        padding: 10px;
+    }
+    .comments .arrows-container {
+        width: 30px;
+        height: 30px;
+    }
+    .comments .arrows-container-right {
+        right: -10%;
+    }
+    .comments .arrows-container-left {
+        left: -10%;
+    }
+    .comments .arrows-container .arrow {
+        padding: 6px;
+        left: 20%;
+    }
+    @-webkit-keyframes arrowMovement {
+        0% {
+            left: 0;
+            opacity: 0;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            left: 15px;
+            opacity: 0;
+        }
+    }
+    @keyframes arrowMovement {
+        0% {
+            left: 0;
+            opacity: 0;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            left: 15px;
+            opacity: 0;
+        }
+    }
 }

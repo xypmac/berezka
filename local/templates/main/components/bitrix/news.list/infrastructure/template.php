@@ -11,76 +11,55 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+CJSCore::Init(array("jquery"));
 ?>
-<div class="news-list">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?
-	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-	?>
-	<p class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
-			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img
-						class="preview_picture"
-						border="0"
-						src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-						width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-						height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-						alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-						title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
-						style="float:left"
-						/></a>
-			<?else:?>
-				<img
-					class="preview_picture"
-					border="0"
-					src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-					width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-					height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-					alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-					title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
-					style="float:left"
-					/>
-			<?endif;?>
-		<?endif?>
-		<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
-			<span class="news-date-time"><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></span>
-		<?endif?>
-		<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
-			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><b><?echo $arItem["NAME"]?></b></a><br />
-			<?else:?>
-				<b><?echo $arItem["NAME"]?></b><br />
-			<?endif;?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo $arItem["PREVIEW_TEXT"];?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
-			<div style="clear:both"></div>
-		<?endif?>
-		<?foreach($arItem["FIELDS"] as $code=>$value):?>
-			<small>
-			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-			</small><br />
-		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<small>
-			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
-				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
-			</small><br />
-		<?endforeach;?>
-	</p>
-<?endforeach;?>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
-</div>
+<section class="section section-infrastructure">
+    <div class="container">
+        <div class="infrastructure">
+            <div class="section__title infrastructure__title">
+                <h2 class="section__title-text infrastructure__title-text">Инфраструктура</h2>
+                <span class="section__title-line infrastructure__title-line"></span>
+            </div>
+            <div class="infrastructure__wrapper">
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img1"></div>
+                    <p class="infrastructure__item-text">Живописная территория</p>
+                    <span class="infrastructure__item-helper">Собственная облагороженная территория 16 га в самой живописной березовой роще, Чистый воздух, артезианская вода, изумительная природа - не оставят равнодушным ни одного человека.</span>
+                </div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img2"></div>
+                    <p class="infrastructure__item-text">Просторные корпуса</p>
+                    <span class="infrastructure__item-helper">Кирпичные отапливаемые 3-х этажные корпуса. Количество мест в номере - от 2 до 8 человек. Удобства в номере. В холлах есть телевизоры, кулеры с горячей и холодной питьевой водой.</span>
+                </div>
+                <div class="break"></div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img3"></div>
+                    <p class="infrastructure__item-text">Правильное питание</p>
+                    <span class="infrastructure__item-helper">Сбалансированное меню, разработанное специалистами и утвержденное Роспотребнадзором. Собственная кухня и столовая</span>
+                </div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img4"></div>
+                    <p class="infrastructure__item-text">Актовый зал</p>
+                    <span class="infrastructure__item-helper">Современный многофункциональный зал, бесспорным преимуществом которого является его большая вместимость и техническое оснащение.</span>
+                </div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img5"></div>
+                    <p class="infrastructure__item-text">Танцпол</p>
+                    <span class="infrastructure__item-helper">Светомузыка, прекрасный звук и собственный диджей.</span>
+                </div>
+                <div class="break"></div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img6"></div>
+                    <p class="infrastructure__item-text">Бассейн</p>
+                    <span class="infrastructure__item-helper">Бассейн</span>
+                </div>
+                <div class="infrastructure__item">
+                    <div class="infrastructure__item-img img7"></div>
+                    <p class="infrastructure__item-text">Кружки</p>
+                    <span class="infrastructure__item-helper">Кружок мягкой игрушки, веселый помпон, кружок выжигания, квиллинг и многие другие! Все для ребят!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
