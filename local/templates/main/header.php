@@ -1,5 +1,5 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
-    
+
 <!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
     <head>
@@ -7,85 +7,65 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
         <? $APPLICATION->ShowHead(); ?>
-       
+        <?
+        use Bitrix\Main\Page\Asset;
+
+        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/libs/slick/slick.css");
+        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/libs/slick/slick-theme.css");
+        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap-icons.css");
+        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/app.css");
+
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/menu.js");
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/libs/slick/slick.js");
+
+        CModule::IncludeModule('falbar.totop');
+        $allInfo = \Falbar\ToTop\Main::getAll();
+        ?>
 
         <title><? $APPLICATION->ShowTitle(); ?></title>
 
-        <!-- slaider -->
-        <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/libs/slick/slick.css" />
-        <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/libs/slick/slick-theme.css" />
-
-        <!-- icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-        <!-- styles -->
-        <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/css/app.css">
-        
     </head>
+
     <body>
-    <? $APPLICATION->ShowPanel(); ?> 
+    <? $APPLICATION->ShowPanel(); ?>
     <!-- header -->
     <header class="header">
         <div class="container">
             <div class="row justify-content-around align-items-center">
-                <div class="col-xl-2 col-md-3 col-sm-3 order-sm-1 order-2 col-1 header__menu menu">
-                    <div class="menu__button"><span></span></div>
-                    <nav class="menu__wrapper">
-                        <ul class="menu__list">
-                            <li class="menu__item menu__item-logo">
-                                <a class="header__logo logo" href="/"><img class="logo__img" src="<?=SITE_TEMPLATE_PATH?>/img/logo.png" alt="logo"></a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">Детский лагерь</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">База отдыха</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">О берёзке</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">Разрешительная документация</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">Прайсы</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="" class="menu__link">Контакты</a>
-                            </li>
-                            <li class="menu__item menu__item-contacts">
-                                <a class="menu__link menu__link-adress" href="">г. Ижевск, 9-й км Як-Бодьинского тракта</a>
-                                <a class="menu__link menu__link-phone" href="tel:+7(3412)720928">+7 (3412) 72-09-28</a>
-                                <a class="menu__link menu__link-phone" href="tel: +7(3412)560188">+7 (3412) 56-01-88</a>
-                            </li>
-                            <li class="menu__item menu__item-social">
-                                <!-- social -->
-                                <ul class="social">
-                                    <li class="social__item">
-                                        <a href="" class="social__link social__link-vk"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="" class="social__link social__link-youtube"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="" class="social__link social__link-facebook"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="" class="social__link social__link-inst"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="" class="social__link social__link-ok"></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <a href="" class="col-xl-6 col-md-5 col-sm-5 order-3 col-10 header__logo logo"><img class="logo__img" src="<?=SITE_TEMPLATE_PATH?>/img/logo.png" alt=""></a>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "main_top",
+                    Array(
+                        "ROOT_MENU_TYPE"    =>  "top",
+                        "MAX_LEVEL" =>  "1",
+                        "CHILD_MENU_TYPE"   =>  "top",
+                        "USE_EXT"   =>  "Y",
+                        "MENU_CACHE_TYPE" => "N",
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => Array()
+                    )
+                );?>
+                <a href="" class="col-xl-6 col-md-5 col-sm-5 order-3 col-10 header__logo logo">
+                    <img class="logo__img" src="<?=SITE_TEMPLATE_PATH?>/img/logo.png" alt="">
+                </a>
                 <div class="col-xl-3 col-md-4 order-sm-3 col-sm-4 order-1 col-12 header__contacts contacts">
-                    <a class="contacts__phone" href="tel:+73412720928"><span class="contacts__phone contacts__phone-green">+7 (3412)</span> 72-09-28</a>
-                    <p class="contacts__adress">9-й км Як-Бодьинского тракта</p>
+                    <?
+                    if (!empty($allInfo['main_phone'])) {
+                    ?>
+                    <a class="contacts__phone" href="tel:<?=$allInfo['main_phone'];?>"><span class="contacts__phone contacts__phone-green"><?=$allInfo['main_phone'];?></span></a>
+                    <?
+                    }
+                    ?>
+                    <?
+                    if (!empty($allInfo['address_complex'])) {
+                    ?>
+                    <p class="contacts__adress"><?=$allInfo['address_complex'];?></p>
+                    <?
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-    </header> 
-	
+    </header>

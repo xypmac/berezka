@@ -1,3 +1,9 @@
 /bitrix
 /upload
 /.idea
+/local/templates/main/header.php
+/local/templates/main/footer.php
+/contacts
+local/templates/main/footer.php
+local/templates/main/header.php
+contacts/index.php

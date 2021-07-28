@@ -12,96 +12,42 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 CJSCore::Init(array("jquery"));
+
+if (!empty($arResult['ITEMS'])) {
 ?>
 
 <section class="section-documents">
     <div class="container">
         <div class="row">
             <div class="section__title documents__title">
-                <h2 class="section__title-text documents__title-text">Разрешительная документация</h2>
+                <h2 class="section__title-text documents__title-text"><?=$arResult['NAME'];?></h2>
             </div>
 
         </div>
         <div class="row">
             <div class="col-12 documents__wrapper">
-                <div class="documents__column">
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/СЭЗ-2019-Лагерь-Берёзка.-Ижевск.jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Лицензия-на-осуществление-медицинской-деятельности.-22Оборот22-1.jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Приложение-к-сертификату-соответсивия-№1..jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/свидетельство-категория.jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                </div>
 
+                <?foreach ($arResult['ITEMS'] as $arrDoc) {?>
 
                 <div class="documents__column">
+                    <?foreach ($arrDoc as $keyDoc => $valDoc) {?>
+                        <?if (empty($valDoc['PREVIEW_PICTURE'])) continue;?>
                     <div class="documents__item">
                         <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Лицензия-на-осуществление-медицинской-деятельности.-22Лицо22-1.jpg" alt="" class="documents__img">
+                            <img src="<?=$valDoc['PREVIEW_PICTURE']['SAFE_SRC'];?>" alt="<?=$valDoc['PREVIEW_PICTURE']['ALT'];?>" class="documents__img">
                         </div>
                         <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
+                            <span class="documents__discription-white"><?=$valDoc['NAME'];?></span>
+                            <?if ($valDoc['PREVIEW_TEXT']){?>
+                                <span class="documents__discription-black"><?=$valDoc['PREVIEW_TEXT'];?></span>
+                            <?}?>
                         </div>
                     </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Сертификат-соответствия-1.jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Приложение-к-сертификату-соответствия-№2..jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
-                    <div class="documents__item">
-                        <div class="documents__img-wrapper">
-                            <img src="<?=$templateFolder?>/img/Свидетельство-о-присвоении-категории.jpg" alt="" class="documents__img">
-                        </div>
-                        <div class="documents__discription">
-                            <span class="documents__discription-white">Санитарно-эпидемиологической заключение</span>
-                            <span class="documents__discription-black">Санитарно-эпидемиологической заключение.2019 Лагерь березка. Ижевск </span>
-                        </div>
-                    </div>
+                    <?}?>
                 </div>
+
+                <?}?>
+
             </div>
         </div>
         <div class="documents__fade">
@@ -111,5 +57,7 @@ CJSCore::Init(array("jquery"));
         </div>
     </div>
 </section>
-
+<?
+}
+?>
 

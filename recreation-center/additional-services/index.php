@@ -1,15 +1,22 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Новости");
+$APPLICATION->SetTitle("Дополнительные услуги");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.list","banners",Array(
+<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => "/include/banners_additional_service.php"
+    )
+);?>
+
+<?
+$APPLICATION->IncludeComponent("bitrix:news.list","happyevent",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
-        "IBLOCK_TYPE" => "general_information",
-        "IBLOCK_ID" => convertingCodeIntoId('banners'),
+        "IBLOCK_TYPE" => "recreation_center",
+        "IBLOCK_ID" => convertingCodeIntoId('additionalservice'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
@@ -33,7 +40,7 @@ $APPLICATION->SetTitle("Новости");
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "INCLUDE_SUBSECTIONS" => "Y",
-        "CACHE_TYPE" => "N",
+        "CACHE_TYPE" => "A",
         "CACHE_TIME" => "3600",
         "CACHE_FILTER" => "Y",
         "CACHE_GROUPS" => "Y",
@@ -55,11 +62,6 @@ $APPLICATION->SetTitle("Новости");
         "AJAX_OPTION_STYLE" => "Y",
         "AJAX_OPTION_HISTORY" => "N",
         "AJAX_OPTION_ADDITIONAL" => ""
-    )
-);?>
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/info_homepage.php"
     )
 );?>
 

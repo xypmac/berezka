@@ -11,107 +11,33 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+if (!empty($arResult['ITEMS'])) {
 ?>
 
 <section class="section section-contacts">
     <div class="container">
         <div class="row">
             <table class="contacts__table">
-                <tr class="contacts__row">
-                    <td class="contacts__item">Администратор</td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">+7 (3412) 59-25-15</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Директор</span>
-                        <span class="contacts__name">
-                            Медянская Наталья Геннадьевна
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">+7 (3412) 59-25-15</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Заместитель директора по общим вопросам</span>
-                        <span class="contacts__name">
-                            Богдашкин Владимир Сергеевич
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">    +7 (3412) 59-23-95</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Директор</span>
-                        <span class="contacts__name">
-                            Медянская Наталья Геннадьевна
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">+7 (3412) 59-25-15</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Заместитель директора по общим вопросам</span>
-                        <span class="contacts__name">
-                            Богдашкин Владимир Сергеевич
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">    +7 (3412) 59-23-95</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Директор</span>
-                        <span class="contacts__name">
-                            Медянская Наталья Геннадьевна
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">+7 (3412) 59-25-15</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Заместитель директора по общим вопросам</span>
-                        <span class="contacts__name">
-                            Богдашкин Владимир Сергеевич
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">    +7 (3412) 59-23-95</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Директор</span>
-                        <span class="contacts__name">
-                            Медянская Наталья Геннадьевна
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">+7 (3412) 59-25-15</a>
-                    </td>
-                </tr>
-                <tr class="contacts__row">
-                    <td class="contacts__item">
-                        <span class="contacts__post">Заместитель директора по общим вопросам</span>
-                        <span class="contacts__name">
-                            Богдашкин Владимир Сергеевич
-                        </span>
-                    </td>
-                    <td class="contacts__item">
-                        <a href="" class="contacts__phone">    +7 (3412) 59-23-95</a>
-                    </td>
-                </tr>
+                <?foreach ($arResult['ITEMS'] as $contact) {?>
+                    <tr class="contacts__row">
+                        <td class="contacts__item">
+                            <span class="contacts__post"><?=$contact['NAME'];?></span>
+                            <?if (!empty($contact['PROPERTIES']['FIO']['VALUE'])) {?>
+                            <span class="contacts__name"><?=$contact['PROPERTIES']['FIO']['VALUE'];?></span>
+                            <?}?>
+                        </td>
+                        <?if (!empty($contact['PROPERTIES']['PHONE']['VALUE'])) {?>
+                        <td class="contacts__item">
+                            <a href="tel:<?=$contact['PROPERTIES']['PHONE']['VALUE'];?>" class="contacts__phone"><?=$contact['PROPERTIES']['PHONE']['VALUE'];?></a>
+                        </td>
+                        <?}?>
+                    </tr>
+                <?}?>
             </table>
         </div>
     </div>
 </section>
+<?
+}
+?>

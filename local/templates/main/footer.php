@@ -1,18 +1,67 @@
 
-    <footer class="footer">
+	<footer class="footer">
         <!-- map -->
         <section class="section">
             <div class="map__wrapper">
-                <div class="map"></div>
+                <div class="map">
+                    <?
+                    $coors = explode(',', $allInfo['coors']);
+                    ?>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:map.yandex.view",
+                        "",
+                       [
+                            "INIT_MAP_TYPE" => "MAP",
+                            "MAP_DATA" => serialize(
+                                [
+                                    "yandex_lat" => $coors[0],
+                                    "yandex_lon" => $coors[1],
+                                    "yandex_scale" => 16,
+                                    "PLACEMARKS" => [
+                                        0 => [
+                                            "LAT" => $coors[0],
+                                            "LON" => $coors[1],
+                                            "TEXT" => $allInfo['address_complex'],
+                                        ],
+                                    ],
+                                ],
+        ),
+                            "MAP_WIDTH" => "100%",
+                            "MAP_HEIGHT" => "100%",
+                            "CONTROLS" => ["SCALELINE", "ZOOM", "TOOLBAR", "SEARCH"],
+                            "OPTIONS" => ["ENABLE_DBLCLICK_ZOOM","ENABLE_DRAGGING"],
+                            "MAP_ID" => "MAP_AFISHA",
+                       ],
+                        false
+                    );?>
+                </div>
                 <div class="map__card">
-                    <h3 class="map__title">Берёзка</h3>
+                    <h3 class="map__title">Березка</h3>
                     <div class="map__text">
+                        <?
+                        if (!empty($allInfo['address_complex'])) {
+                        ?>
                         <p>Адрес:</p>
-                        <p>г. Ижевск, 9-й км, Як-Бодьинского тракта</p>
-                        <p>Телефон:</p>
-                        <p>+7 (3412) 72-09-28</p>
-                        <p>Режим работы:</p>
-                        <p>ежедневно с 9.00 до 18.00</p>
+                        <p><?=$allInfo['address_complex'];?></p>
+                        <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['main_phone'])) {
+                            ?>
+                            <p>Телефон:</p>
+                            <p><?=$allInfo['main_phone'];?></p>
+                            <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['main_phone'])) {
+                            ?>
+                            <p>Режим работы:</p>
+                            <p><?=$allInfo['working_hours'];?></p>
+                            <?
+                        }
+                        ?>
                     </div>
                     <a href="/" class="map__route route">
                         <span class="route__icon"></span> <span class="route__text">Проложить маршрут</span>
@@ -24,32 +73,59 @@
             <div class="row justify-content-center">
                 <div class="col footer__social">
                     <ul class="social">
-                        <li class="social__item">
-                            <a href="" class="social__link social__link-vk"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link social__link-youtube"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link social__link-facebook"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link social__link-inst"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link social__link-ok"></a>
-                        </li>
+                        <?
+                        if (!empty($allInfo['link_vk'])) {
+                            ?>
+                            <li class="social__item">
+                                <a href="<?=$allInfo['link_vk'];?>" class="social__link social__link-vk"></a>
+                            </li>
+                            <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['link_youtube'])) {
+                            ?>
+                            <li class="social__item">
+                                <a href="<?=$allInfo['link_youtube'];?>" class="social__link social__link-youtube"></a>
+                            </li>
+                            <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['link_fb'])) {
+                            ?>
+                            <li class="social__item">
+                                <a href="<?=$allInfo['link_fb'];?>" class="social__link social__link-facebook"></a>
+                            </li>
+                            <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['link_insta'])) {
+                            ?>
+                            <li class="social__item">
+                                <a href="<?=$allInfo['link_insta'];?>" class="social__link social__link-inst"></a>
+                            </li>
+                            <?
+                        }
+                        ?>
+                        <?
+                        if (!empty($allInfo['link_ok'])) {
+                            ?>
+                            <li class="social__item">
+                                <a href="<?=$allInfo['link_ok'];?>" class="social__link social__link-ok"></a>
+                            </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col footer__icon">&copy; Берёзка, 2019 год
+                <div class="col footer__icon">&copy; Берёзка, <?=date('Y');?> год
                 </div>
             </div>
         </div>
-    </footer>   
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/menu.js"></script>
-    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/libs/slick/slick.js"></script>
+    </footer>
 </body>
 </html>
