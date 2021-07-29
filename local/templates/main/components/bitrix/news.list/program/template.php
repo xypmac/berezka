@@ -12,78 +12,29 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 CJSCore::Init(array("jquery"));
+
+if (!empty($arResult['ITEMS'])) {
 ?>
 
 <section class="section section-gallery">
     <div class="container">
         <div class="section__title">
-            <h2 class="section__title-text">Программа</h2>
+            <h2 class="section__title-text"><?=$arResult['NAME'];?></h2>
             <span class="section__title-line"></span>
         </div>
         <div class="gallery">
             <div class="gallery__show">
-                <img src="<?=$templateFolder?>/img/img1.jpg" alt="">
+                <img src="<?=$arResult['ITEMS'][0]['PREVIEW_PICTURE']['SRC']?>" alt="<?=$arResult['ITEMS'][0]['PREVIEW_PICTURE']['ALT']?>">
             </div>
             <div class="gallery__wrapper">
+                <?foreach ($arResult['ITEMS'] as $k => $v) {?>
                 <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img1.jpg" alt="" class="gallery__img">
+                    <img src="<?=$v['PREVIEW_PICTURE']['SRC']?>" alt="<?=$v['PREVIEW_PICTURE']['ALT']?>" class="gallery__img">
                 </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img2.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img3.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img4.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img5.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img6.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img7.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img8.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img9.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img1.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img2.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img3.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img4.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img5.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img6.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img7.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img8.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img9.jpg" alt="" class="gallery__img">
-                </div>
-                <div class="gallery__item">
-                    <img src="<?=$templateFolder?>/img/img9.jpg" alt="" class="gallery__img">
-                </div>
+                <?}?>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </section>
+<?}?>
