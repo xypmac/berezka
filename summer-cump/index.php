@@ -154,7 +154,9 @@ $APPLICATION->SetTitle("Летний лагерь");
         "PATH" => "/include/summer_cump_program.php"
     )
 );?>
-
+<?
+$infrastructureFilter = ['PROPERTY_WHERE' => '44'];
+?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list","infrastructure",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
@@ -168,7 +170,7 @@ $APPLICATION->SetTitle("Летний лагерь");
         "SORT_ORDER1" => "DESC",
         "SORT_BY2" => "SORT",
         "SORT_ORDER2" => "ASC",
-        "FILTER_NAME" => "",
+        "FILTER_NAME" => "infrastructureFilter",
         "FIELD_CODE" => Array("ID"),
         "PROPERTY_CODE" => Array("DESCRIPTION"),
         "CHECK_DATES" => "Y",
@@ -216,7 +218,9 @@ $APPLICATION->SetTitle("Летний лагерь");
         "PATH" => "/include/booking_module.php"
     )
 );?>
-
+<?
+$reviewFilter = ['PROPERTY_LINK_INFOBLOCK' => '58'];
+?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list","review",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
@@ -224,13 +228,13 @@ $APPLICATION->SetTitle("Летний лагерь");
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
         "IBLOCK_TYPE" => "summer_cump",
-        "IBLOCK_ID" => convertingCodeIntoId('review'),
+        "IBLOCK_ID" => convertingCodeIntoId('reviews'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
         "SORT_ORDER1" => "DESC",
         "SORT_BY2" => "SORT",
         "SORT_ORDER2" => "ASC",
-        "FILTER_NAME" => "",
+        "FILTER_NAME" => "reviewFilter",
         "FIELD_CODE" => Array("ID"),
         "PROPERTY_CODE" => Array("DESCRIPTION"),
         "CHECK_DATES" => "Y",
@@ -248,7 +252,7 @@ $APPLICATION->SetTitle("Летний лагерь");
         "PARENT_SECTION" => "",
         "PARENT_SECTION_CODE" => "",
         "INCLUDE_SUBSECTIONS" => "Y",
-        "CACHE_TYPE" => "A",
+        "CACHE_TYPE" => "N",
         "CACHE_TIME" => "3600",
         "CACHE_FILTER" => "Y",
         "CACHE_GROUPS" => "Y",
@@ -270,6 +274,12 @@ $APPLICATION->SetTitle("Летний лагерь");
         "AJAX_OPTION_STYLE" => "Y",
         "AJAX_OPTION_HISTORY" => "N",
         "AJAX_OPTION_ADDITIONAL" => ""
+    )
+);?>
+
+<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => "/include/buttons_form.php"
     )
 );?>
 

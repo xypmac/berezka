@@ -102,21 +102,53 @@ $arrIdsSection = array_column($arResult['SECTIONS'], 'ID');
 if (!empty($arrIdsSection)) {
     \Bitrix\Main\Loader::includeModule('iblock');
 
-    $elements = \Bitrix\Iblock\Elements\ElementFoodmenuTable::getList([
+    $propertyMainMenu = \Bitrix\Iblock\PropertyTable::getList([
+        'filter' => [
+            'CODE' => 'ELEMENT_MENU',
+            'ACTIVE' => 'Y'
+        ]
+    ])->fetchAll();
+    foreach ($propertyMainMenu as $v) {
+        $linkIblockId = $v['LINK_IBLOCK_ID'];
+    }
+
+    $offers_main_menu = \Bitrix\Iblock\Elements\ElementOffersmenuTable::getList([
+        'filter' => [
+            'ACTIVE' => 'Y'
+        ],
+        'order' => [
+            'SORT' => 'ASC',
+        ],
+        'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'WEIGHT_' => 'WEIGHT'],
+    ])->fetchAll();
+
+    foreach ($offers_main_menu as $k => $v) {
+        $arrOffersMainMenu[$v['ID']] = $v;
+    }
+
+    $main_menu = \Bitrix\Iblock\Elements\ElementFoodmenuTable::getList([
         'filter' => [
             'IBLOCK_SECTION_ID' => $arrIdsSection,
+            'ACTIVE' => 'Y'
         ],
         'order' => [
             'SORT' => 'ASC',
         ],
         'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'WEIGHT_' => 'WEIGHT', 'ELEMENT_MENU_' => 'ELEMENT_MENU'],
     ])->fetchAll();
-    foreach ($elements as $element) {
-        //\Bitrix\Main\Diag\Debug::dump($element);
+    foreach ($main_menu as $element) {
+        $keySec = array_search($element['IBLOCK_SECTION_ID'], array_column($arResult['SECTIONS'], 'ID'));
+        if ($keySec !== false) {
+            if (is_null($element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE'])) {
+                $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']] = $element;
+            } else {
+                //\Bitrix\Main\Diag\Debug::dump($element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']);
+                $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']]['NAME'] = $element['NAME'];
+                if (!empty($arrOffersMainMenu[$element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']])) {
+                    $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']][] = $arrOffersMainMenu[$element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']];
+                }
+            }
+        }
     }
-
 }
-
-//\Bitrix\Main\Diag\Debug::dump($arResult['SECTIONS']);
-die();
 ?>

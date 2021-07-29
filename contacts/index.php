@@ -2,12 +2,50 @@
 $APPLICATION->SetTitle("Контакты");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/info_contacts.php"
-    )
-);
-?>
+<section class="section section-information">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 information information-right">
+                <div class="information__img information__img-contacts"></div>
+                <div class="information__wrapper information__wrapper-green">
+                    <div class="section__title information__title">
+                        <h2 class="section__title-text information__title-text">Контакты</h2>
+                        <span class="section__title-line information__title-line"></span>
+                    </div>
+                    <?if (!empty($allInfo['address_office'])) {?>
+                    <div class="information__text">
+                        ООО «Оздоровительный комплекс «Березка» Офис продаж: <?=$allInfo['address_office'];?>
+                    </div>
+                    <?}?>
+                    <div class="card card-blue card-angles information__card">
+                        <div class="card__img"></div>
+                        <div class="card__wrapper">
+                            <div class="card__text">
+                                <ul>
+                                    <li>Телефон:</li>
+                                    <?if (!empty($allInfo['main_phone'])) {?>
+                                    <li>
+                                        <a href="tel:<?=$allInfo['main_phone'];?>" class="card__link"><?=$allInfo['main_phone'];?></a>
+                                    </li>
+                                    <?}?>
+                                    <?if (!empty($allInfo['second_phone'])) {?>
+                                    <li>
+                                        <a href="tel:<?=$allInfo['second_phone'];?>" class="card__link"><?=$allInfo['second_phone'];?></a>
+                                    </li>
+                                    <?}?>
+                                    <?if (!empty($allInfo['working_hours'])) {?>
+                                        <li> Режим работы: </li>
+                                        <li><?=$allInfo['working_hours'];?></li>
+                                    <?}?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?$APPLICATION->IncludeComponent("bitrix:news.list","contacts",Array(
         "DISPLAY_DATE" => "Y",

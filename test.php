@@ -5,5 +5,6 @@ $allInfo = \Falbar\ToTop\Main::getAll();
 $singleInfo = \Falbar\ToTop\Main::getSingle('main_phone');
 convertingCodeIntoId('contactslist');
 
-?>
+\Bitrix\Main\Diag\Debug::dump($allInfo);
 
+?>
