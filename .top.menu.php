@@ -2,14 +2,14 @@
 $aMenuLinks = Array(
 	Array(
 		"Детский лагерь",
-		"",
+		"/summer-cump/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"База отдыха",
-		"",
+		"/recreation-center/",
 		Array(), 
 		Array(), 
 		"" 

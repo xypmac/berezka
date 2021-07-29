@@ -12,7 +12,7 @@
 
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/libs/slick/slick.css");
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/libs/slick/slick-theme.css");
-        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap-icons.css");
+        Asset::getInstance()->addCss("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/app.css");
 
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");

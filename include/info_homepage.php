@@ -5,7 +5,7 @@
                 <div class="parts__item part part-recreation">
                     <div class="part__title">
                         <h3 class="part__text">База Отдыха</h3>
-                        <a href="/" class="arrows-container">
+                        <a href="/recreation-center/" class="arrows-container">
                             <span class="arrow arrow-one"></span>
                             <span class="arrow arrow-two"></span>
                             <span class="arrow arrow-three"></span>
@@ -15,7 +15,7 @@
                 <div class="parts__item part part-camping">
                     <div class="part__title">
                         <h3 class="part__text">Летний лагерь</h3>
-                        <a href="/" class="arrows-container">
+                        <a href="/summer-cump/" class="arrows-container">
                             <span class="arrow arrow-one"></span>
                             <span class="arrow arrow-two"></span>
                             <span class="arrow arrow-three"></span>
