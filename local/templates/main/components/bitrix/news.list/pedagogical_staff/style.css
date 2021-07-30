@@ -33,7 +33,7 @@
 }
 
 .teacher {
-    padding: 5%;
+    padding: 15px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -202,6 +202,7 @@
     font-size: 30px;
     color: #696969;
     z-index: 9999;
+    cursor: pointer;
 }
 
 .teachers__popup .popup-close:focus {
@@ -274,6 +275,9 @@
 }
 
 @media (max-width: 1199.98px) {
+    .teacher {
+        padding: 5px;
+    }
     .teachers__row-text {
         margin-left: 0;
     }

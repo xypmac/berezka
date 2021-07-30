@@ -29,7 +29,7 @@ $(document).ready(function(){
         
     });
     
-    $('.popup').find('.teacher').append('<a class="popup-close" href="/"><i class="bi bi-x "></i></a>');
+    $('.popup').find('.teacher').append('<span class="popup-close"><i class="bi bi-x "></i></span>');
         
     $('.teacher').click(function(e){
         $('body').data('num', Number($(this).data('id')));
