@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let timeout;
 
-    $('.teacher').clone().appendTo('.popup').wrap("<div class='popup__item'></div>")
+    $('.teacher').clone().appendTo($('.popup')).wrap("<div class='popup__item'></div>")
     
     $('.teachers__list').slick({
         infinite: true,
@@ -28,9 +28,9 @@ $(document).ready(function(){
        
         
     });
-
     
-
+    $('.popup').find('.teacher').append('<a class="popup-close" href="/"><i class="bi bi-x "></i></a>');
+        
     $('.teacher').click(function(e){
         $('body').data('num', Number($(this).data('id')));
         $('.popup-fade').fadeIn();
@@ -48,22 +48,19 @@ $(document).ready(function(){
             nextArrow: '<div class="teachers__arrow teachers__arrow-next"><i class="bi bi-chevron-right"></i></div>',
             
         });
-        $('.teacher').append('<a class="popup-close" href="/"><i class="bi bi-x "></i></a>');
-
-        $('.popup-close').click(function(e){
-            e.preventDefault();
-            $('.popup-fade').fadeOut();
-            clearTimeout(timeout);
-            timeout = setTimeout(function(){
-                $('.popup').slick('unslick');
-            }, 1)
-            return false;
-        });
-
+        
         return false;
     });
-
     
+    $('.popup-close').click(function(e){
+        e.preventDefault();
+        $('.popup-fade').fadeOut();
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+            $('.popup').slick('unslick');
+        }, 500)
+        return false;
+    });
    
     $(document).keydown(function(e) {
 		if (e.keyCode === 27) {
@@ -72,7 +69,7 @@ $(document).ready(function(){
             clearTimeout(timeout)
             timeout = setTimeout(function(){
                 $('.popup').slick('unslick');
-            }, 100)
+            }, 500)
 		}
 	});
     $('.popup-fade').click(function(e) {
@@ -81,9 +78,9 @@ $(document).ready(function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
                 $('.popup').slick('unslick');
-            }, 100)				
+            }, 500)				
 		}
 	});	
-
+    
    
 });

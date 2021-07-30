@@ -64,7 +64,6 @@
     font-size: .8rem;
     text-align: center;
     margin-bottom: 10px;
-    min-height: 26px;
 }
 
 .teacher__line {
@@ -82,10 +81,6 @@
 }
 
 .teacher__description {
-    display: none;
-}
-
-.popup-close {
     display: none;
 }
 
@@ -194,7 +189,6 @@
     position: fixed;
     top: 10%;
     left: 10%;
-    padding: 20px;
     width: 80%;
     z-index: 9999;
     opacity: 1;
@@ -203,10 +197,11 @@
 .teachers__popup .popup-close {
     display: block;
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 55px;
+    right: 55px;
     font-size: 30px;
     color: #696969;
+    z-index: 9999;
 }
 
 .teachers__popup .popup-close:focus {
@@ -221,6 +216,7 @@
 }
 
 .teachers__popup .popup__item .teacher {
+    padding: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -239,13 +235,6 @@
 
 .teachers__popup .popup__item .teacher__text-wrapper {
     width: 55%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
     padding: 20px;
     min-height: 70vh;
     max-height: 70vh;
@@ -290,12 +279,6 @@
     }
 }
 
-@media (max-width: 991.98px) {
-    .teachers__popup .popup-close {
-        top: 5%;
-    }
-}
-
 @media (max-width: 767.98px) {
     .teachers__arrow-prev {
         top: 30%;
@@ -306,9 +289,6 @@
     .teachers__popup .popup {
         width: 90%;
         left: 5%;
-    }
-    .teachers__popup .popup-close {
-        top: 5%;
     }
     .teachers__popup .popup .teachers__arrow-prev {
         left: 0;
@@ -382,11 +362,12 @@
         top: 40%;
     }
     .teachers__popup .popup {
-        top: 10px;
+        top: 10%;
         width: 98%;
         left: 1%;
     }
     .teachers__popup .popup__item .teacher {
+        padding: 30px;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -405,6 +386,11 @@
         width: 100%;
         min-height: 40vh;
         max-height: 40vh;
+    }
+    .teachers__popup .popup-close {
+        color: #f3b221;
+        top: 35px;
+        right: 35px;
     }
     .teachers__popup .popup .teachers__arrow {
         width: 30px;
