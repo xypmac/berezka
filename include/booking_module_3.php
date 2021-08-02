@@ -1,7 +1,7 @@
 <section class="booking-module">
     <div class="container-fluid">
         <div class="row">
-            <div id="tl-search-form" class="tl-container-main"></div>
+            <div id="tl-search-form3" class="tl-container-main"></div>
         </div>
     </div>
 </section>
@@ -30,7 +30,7 @@
         var q = [
             ['setContext', 'TL-INT-berezka18-ru', 'ru'],
             ['embed', 'search-form', {
-                container: 'tl-search-form'
+                container: 'tl-search-form3'
             }]
         ];
         var t = w.travelline = (w.travelline || {}),

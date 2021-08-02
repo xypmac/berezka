@@ -174,7 +174,7 @@ $iblockaccommodation=$iblockResult->fetch();
 
 <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
         "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/booking_module.php"
+        "PATH" => "/include/booking_module_2.php"
     )
 );?>
 
@@ -374,7 +374,7 @@ $infrastructureFilter = ['PROPERTY_WHERE' => '44'];
 
 <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
         "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/booking_module.php"
+        "PATH" => "/include/booking_module_3.php"
     )
 );?>
 <?
