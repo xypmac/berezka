@@ -1,41 +1,44 @@
+/* section slaider for main page */
+
+.section-slaider {
+    margin-top: 80px;
+}
+
 .slaider {
     position: relative;
-    min-height: 85vh;
     width: 100%;
 }
 
 .slaider .slaid {
     height: auto;
-    min-height: 85vh;
-    padding: 3% 0;
     color: #fff;
 }
 
 .slaider .slaid-img1 {
-    background: url("img/img1.png") no-repeat center;
+    background: url("../img/slaider/img1.png") no-repeat center;
     background-size: cover;
 }
 
 .slaider .slaid-img2 {
-    background: url("img/img3.jpg") no-repeat center;
+    background: url("../img/slaider/img3.jpg") no-repeat center;
     background-size: cover;
 }
 
 .slaider .slaid-img3 {
-    background: url("img/img4.jpg") no-repeat center;
+    background: url("../img/slaider/img4.jpg") no-repeat center;
     background-size: cover;
 }
 
 .slaider .slaid-img4 {
-    background: url("img/img5.jpg") no-repeat center;
+    background: url("../img/slaider/img5.jpg") no-repeat center;
     background-size: cover;
 }
 
 .slaider .slaid__wrapper {
     position: relative;
     height: auto;
-    min-height: 80vh;
-    margin-left: 15%;
+    min-height: 450px;
+    margin: 50px 0 50px 15%;
     width: 30%;
     background: rgba(235, 79, 154, 0.85);
     border-radius: 25px;
@@ -103,8 +106,8 @@
 
 @media (max-width: 991.98px) {
     .slaider .slaid__wrapper {
+        min-height: 350px;
         width: 35%;
-        margin-left: 15%;
     }
     .slaider .slaid__title {
         font-size: 1.5rem;
@@ -113,7 +116,9 @@
 
 @media (max-width: 767.98px) {
     .slaider .slaid__wrapper {
+        min-height: 300px;
         width: 40%;
+        margin: 30px 0 30px 15%;
     }
     .slaider .slaid__title {
         margin-bottom: 20px;
@@ -124,8 +129,11 @@
 }
 
 @media (max-width: 575.98px) {
+    .section-slaider {
+        margin-top: 120px;
+    }
     .slaider .slaid__wrapper {
-        margin: 0 auto;
+        margin: 30px auto;
         width: 60%;
     }
     .slaider .slaid__title {

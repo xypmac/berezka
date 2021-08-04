@@ -83,7 +83,8 @@
     margin-top: 6px;
 }
 
-.answer__text {
+.answer__text,
+.answer__wrapper p {
     margin-bottom: 10px;
 }
 

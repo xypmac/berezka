@@ -17,7 +17,7 @@ CJSCore::Init(array("jquery"));
 <?
 if (!empty($arResult['ITEMS'])) {
 ?>
-    <section class="section">
+    <section class="section-slaider">
         <div class="container-fluid">
             <div class="row">
                 <div class="slaider">
