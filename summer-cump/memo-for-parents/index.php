@@ -68,7 +68,7 @@ $APPLICATION->IncludeComponent("bitrix:news.list","happyevent",Array(
         "DISPLAY_PICTURE" => "Y",
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "AJAX_MODE" => "N",
-        "IBLOCK_TYPE" => "recreation_center",
+        "IBLOCK_TYPE" => "summer_cump",
         "IBLOCK_ID" => convertingCodeIntoId('memoforparents'),
         "NEWS_COUNT" => "20",
         "SORT_BY1" => "ACTIVE_FROM",
