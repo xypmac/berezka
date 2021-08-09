@@ -1,0 +1,67 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "Детский лагерь",
+        "/summer-cump/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "База отдыха",
+        "/recreation-center/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Мероприятия",
+        "/recreation-center/event/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Дополнительные услуги",
+        "/recreation-center/additional-services/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Проживание",
+        "/recreation-center/accommodation-rooms/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Питание",
+        "/recreation-center/food/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Разрешительная документация",
+        "/certificates/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Прайсы",
+        "/prices/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/contacts/",
+        Array(),
+        Array(),
+        ""
+    ),
+);
+?>

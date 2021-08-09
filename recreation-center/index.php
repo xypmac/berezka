@@ -1,6 +1,11 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("База отдыха");
 ?>
+
+<?
+$bannerFilter = ['PROPERTY_LIST_SECTION' => '43'];
+?>
+
 <?$APPLICATION->IncludeComponent("bitrix:news.list","banners",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
@@ -14,7 +19,7 @@ $APPLICATION->SetTitle("База отдыха");
         "SORT_ORDER1" => "DESC",
         "SORT_BY2" => "SORT",
         "SORT_ORDER2" => "ASC",
-        "FILTER_NAME" => "",
+        "FILTER_NAME" => "bannerFilter",
         "FIELD_CODE" => Array("ID"),
         "PROPERTY_CODE" => Array("DESCRIPTION"),
         "CHECK_DATES" => "Y",

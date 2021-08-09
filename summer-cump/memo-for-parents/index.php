@@ -62,6 +62,7 @@ $bannerFilter = ['PROPERTY_LIST_SECTION' => '60'];
 );?>
 
 <?
+
 $APPLICATION->IncludeComponent("bitrix:news.list","happyevent",Array(
         "DISPLAY_DATE" => "Y",
         "DISPLAY_NAME" => "Y",
