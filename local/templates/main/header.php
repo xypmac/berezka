@@ -17,6 +17,7 @@
 
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/menu.js");
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/form.js");
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/libs/slick/slick.js");
 
         CModule::IncludeModule('falbar.totop');
