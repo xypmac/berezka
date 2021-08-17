@@ -9,7 +9,7 @@ function convertingCodeIntoId($code = '') {
 
     $iblockResult = \Bitrix\Iblock\IblockTable::getList(
         [
-            'order' => ['IBLOCK_TYPE_ID'=>'ASC','SORT'=>'ASC','ID'=>'DESC'],
+            'order' =>  ['ID'=>'DESC'],
             'filter' => ['CODE' => $code],
             'select' => ['ID'],
         ]

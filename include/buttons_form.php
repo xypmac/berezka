@@ -6,7 +6,7 @@
                     <p class="message__text">
                         Вы можете оставить свой отзыв о нашем оздоровительном комплексе «Березка»
                     </p>
-                    <a href="/" class="button button-transparent message__button">Оставить отзыв </a>
+                    <button onclick="call_modal_window()" class="button button-transparent message__button">Оставить отзыв </button>
                 </div>
             </div>
         </div>

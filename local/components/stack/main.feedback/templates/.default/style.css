@@ -5,9 +5,11 @@ div.mf-message textarea {width: 60%;}
 span.mf-req {color:red;}
 div.mf-ok-text {color:green; font-weight:bold; padding-bottom: 1em;} */
 
+/*
 .form__fade {
     display: none;
 }
+ */
 
 .form__fade::before {
     content: '';
@@ -55,6 +57,7 @@ div.mf-ok-text {color:green; font-weight:bold; padding-bottom: 1em;} */
     right: 10px;
     font-size: 30px;
     color: #696969;
+    cursor: pointer;
 }
 
 .form__item {

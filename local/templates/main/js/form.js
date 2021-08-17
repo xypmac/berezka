@@ -1,3 +1,27 @@
+function call_modal_window() {
+    let modal = BX('modal-window');
+    if (modal === null) {
+        BX.ready(function(){
+            let modalContainer = BX.create('div', {
+                attrs: {
+                    id: 'modal-window'
+                },
+            });
+            let body = document.querySelectorAll('body');
+            BX.append(modalContainer, body[0]);
+            BX.ajax.insertToNode(
+                '/include/ajax/modal_window_callme.php',
+                modalContainer,
+            );
+        });
+    } else return false;
+}
+
+function close_modal() {
+    BX.remove(BX('modal-window'));
+}
+
+/*
 $(document).ready(function(){
 
     $('.message__button').click(function(e){
@@ -35,3 +59,5 @@ $(document).ready(function(){
 	});	
    
 })
+
+ */
