@@ -6617,6 +6617,10 @@ body {
     background: url("../img/bg_nutrition.jpg") no-repeat center;
     background-size: cover;
 }
+.nutrition__wrapper-table {
+    background: url("../img/bg_table.png") no-repeat top left;
+    background-size: 150%; 
+}
 
 .nutrition__wrapper-recreation {
     width: 100%;
