@@ -19,7 +19,7 @@ CJSCore::Init(array("jquery"));
         <div class="row">
             <div class="foods__wrapper">
                 <div class="foods__item food">
-                    <img src="img/food/img2.jpg" alt="" class="food__img">
+                    <img src="<?= $templateFolder ?>/img/img2.jpg" alt="" class="food__img">
                     <div class="food__title food__title-orange">
                         <span class="food__title-name">Завтрак в столовой</span> 
                         <span class="food__title-ptice">150 руб</span>
@@ -27,7 +27,7 @@ CJSCore::Init(array("jquery"));
                     <div class="food__more"><button class="food__more-button">Подробнее</button></div>
                 </div>
                 <div class="foods__item food">
-                    <img src="img/food/img3.jpg" alt="" class="food__img">
+                    <img src="<?= $templateFolder ?>/img/img3.jpg" alt="" class="food__img">
                     <div class="food__title food__title-pink">
                         <span class="food__title-name">Обед в столовой</span> 
                         <span class="food__title-ptice">150 руб</span>
@@ -35,7 +35,7 @@ CJSCore::Init(array("jquery"));
                     <div class="food__more"><button class="food__more-button">Подробнее</button></div>
                 </div>
                 <div class="foods__item food">
-                    <img src="img/food/img1.jpg" alt="" class="food__img">
+                    <img src="<?= $templateFolder ?>/img/img1.jpg" alt="" class="food__img">
                     <div class="food__title food__title-pink">
                         <span class="food__title-name">Ужин в столовой</span> 
                         <span class="food__title-ptice">150 руб</span>
@@ -45,7 +45,7 @@ CJSCore::Init(array("jquery"));
             </div>
         </div>
     </div>
-    <div class="popup__fade">
+    <div class="popup__fade meal__fade">
         <div class="popup__modal meal__popup">
             <div class="meal__title">
                 <div class="meal__title-name">Завтрак в столовой</div>

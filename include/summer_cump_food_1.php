@@ -1,4 +1,4 @@
-<section class="section section-nutrition">
+<section class="section-nutrition">
     <div class="container-fluid">
         <div class="row">
             <div class="nutrition__wrapper nutrition__wrapper-table">

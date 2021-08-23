@@ -11,7 +11,8 @@ $(document).ready(function(){
     // открыть popup
     $(document).on('click', '.food', function(){
         $('.header').css({'z-index': '-1'});
-        $('.popup__fade').fadeIn();
+        $('.foods__wrapper').css({'z-index': '-1'});
+        $('.meal__fade:first').fadeIn();
         $('body').css({'overflow': 'hidden'});
         return false;
       });
@@ -19,9 +20,10 @@ $(document).ready(function(){
   
   
     // Клик по ссылке "Закрыть".
-    $(document).on('click', '.popup__close', function(){ 
+    $(document).on('click', '.meal__close', function(){ 
         $('.header').css({'z-index': '1'});
-        $(this).parents('.popup__fade').fadeOut();
+        $('.foods__wrapper').css({'z-index': '1'});
+        $(this).parents('.meal__fade').fadeOut();
         $('body').css({'overflow': 'auto'});
         return false;
     });
@@ -31,17 +33,19 @@ $(document).ready(function(){
     $(document).keydown(function(e) {
         if (e.keyCode === 27) {
             e.stopPropagation();
-            $('.popup__fade').fadeOut();
+            $('.meal__fade').fadeOut();
             $('.header').css({'z-index': '1'});
+            $('.foods__wrapper').css({'z-index': '1'});
             $('body').css({'overflow': 'auto'});
         }
     });
     
     // Клик по фону, но не по окну.
-    $(document).on('click', '.popup__fade', function(e){ 
-        if ($(e.target).closest('.popup__modal').length == 0) {
+    $(document).on('click', '.meal__fade', function(e){ 
+        if ($(e.target).closest('.meal__popup').length == 0) {
             $(this).fadeOut();
             $('.header').css({'z-index': '1'});
+            $('.foods__wrapper').css({'z-index': '1'});
             $('body').css({'overflow': 'auto'});					
         }
 

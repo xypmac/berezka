@@ -51,7 +51,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../img/line.png") no-repeat -5% 100%;
+    background: url("./img/line.png") no-repeat -5% 100%;
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -67,7 +67,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    background: url("../img/line.png") no-repeat -5% 80%;
+    background: url("./img/line.png") no-repeat -5% 80%;
     background-size: 11%;
     z-index: -1;
 }
@@ -427,7 +427,7 @@
     .food {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        height: 360px;
+        height: 360px !important;
         margin-bottom: 30px;
     }
 
@@ -503,7 +503,7 @@
     }
 
     .food {
-        height: 300px;
+        height: 300px !important;
     }
 
     .food__title {

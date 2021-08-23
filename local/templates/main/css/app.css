@@ -6618,9 +6618,21 @@ body {
     background-size: cover;
 }
 .nutrition__wrapper-table {
+    margin-top: 5%;
     background: url("../img/bg_table.png") no-repeat top left;
-    background-size: 150%; 
+    background-size: cover; 
 }
+.nutrition__wrapper-buffet {
+    margin-top: 5%;
+    background: url("../img/bg_buffet.jpg") no-repeat center;
+    background-size: cover; 
+}
+.nutrition__wrapper-banquet {
+    margin-top: 5%;
+    background: url("../img/bg_banquet.jpg") no-repeat center;
+    background-size: cover; 
+}
+
 
 .nutrition__wrapper-recreation {
     width: 100%;
@@ -6636,6 +6648,18 @@ body {
     color: #fff;
     margin: -2% 0 -2% 10%;
     position: relative;
+}
+.nutrition-blue {
+    background: #00aced;
+
+}
+.nutrition-orange {
+    background: rgba(243, 177, 32, 0.85);
+
+}
+
+.nutrition-right {
+    margin: -2% 0 -2% 60%;
 }
 
 .nutrition__title {
@@ -6674,6 +6698,23 @@ body {
     background-size: contain;
 }
 
+.nutrition__button-blue:hover {
+    color: #00aced;
+    background: #fff;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+.nutrition-orange .nutrition__button:hover {
+    color: #f1ba3f;
+    background: #fff;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+
+}
+
 @media (max-width: 1199.98px) {
     .section-nutrition {
         margin-top: 7%;
@@ -6682,6 +6723,9 @@ body {
         width: 35%;
         margin: -5% 0 -5% 10%;
     }
+    .nutrition-right {
+        margin: -5% 0 -5% 50%;
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -6689,6 +6733,9 @@ body {
         width: 45%;
         padding: 35px 25px;
     }
+    .nutrition-right {
+        margin: -5% 0 -5% 30%;
+    }dc VSZXVSDDSvASsSVWABDSA WA
 
     .nutrition__text {
         font-size: .9rem;
@@ -6706,8 +6753,14 @@ body {
     .section-nutrition {
         margin-top: 0;
     }
+    .nutrition__wrapper-table {
+        margin-top: 100px;
+    }
     .nutrition {
         width: 80%;
+        margin: 5% auto;
+    }
+    .nutrition-right {
         margin: 5% auto;
     }
 
