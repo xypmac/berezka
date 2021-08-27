@@ -25,8 +25,6 @@ $(document).ready(function(){
                 }
               }
           ]
-       
-        
     });
     
     $('.popup').find('.teacher').append('<span class="popup-close"><i class="bi bi-x "></i></span>');
@@ -35,6 +33,7 @@ $(document).ready(function(){
         $('body').data('num', Number($(this).data('id')));
         $('.popup-fade').fadeIn();
         $('.popup').resize();
+        $('body').css({'overflow': 'hidden'});
         clearTimeout(timeout);
         $('.popup').slick({
             initialSlide: $('body').data('num'),
@@ -55,6 +54,7 @@ $(document).ready(function(){
     $('.popup-close').click(function(e){
         e.preventDefault();
         $('.popup-fade').fadeOut();
+        $('body').css({'overflow': 'auto'});
         clearTimeout(timeout);
         timeout = setTimeout(function(){
             $('.popup').slick('unslick');
@@ -66,6 +66,7 @@ $(document).ready(function(){
 		if (e.keyCode === 27) {
             e.stopPropagation();
 			$('.popup-fade').fadeOut();
+            $('body').css({'overflow': 'auto'});
             clearTimeout(timeout)
             timeout = setTimeout(function(){
                 $('.popup').slick('unslick');
@@ -75,6 +76,7 @@ $(document).ready(function(){
     $('.popup-fade').click(function(e) {
 		if ($(e.target).closest('.popup').length == 0) {
             $(this).fadeOut();	
+            $('body').css({'overflow': 'auto'});
             clearTimeout(timeout);
             timeout = setTimeout(function(){
                 $('.popup').slick('unslick');

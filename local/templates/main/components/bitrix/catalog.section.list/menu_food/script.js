@@ -12,11 +12,10 @@ $(document).ready(function(){
     $(document).on('click', '.food', function(){
         $('.header').css({'z-index': '-1'});
         $('.foods__wrapper').css({'z-index': '-1'});
-        $('.meal__fade:first').fadeIn();
+        $(this).closest('.section-foods').find('.meal__fade').fadeIn();
         $('body').css({'overflow': 'hidden'});
         return false;
       });
-      
   
   
     // Клик по ссылке "Закрыть".
