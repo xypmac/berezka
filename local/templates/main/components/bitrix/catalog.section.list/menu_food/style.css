@@ -424,10 +424,14 @@
         margin: 0 auto;
     }
 
+    .foods__wrapper .slick-slide {
+        height: 360px;
+    }
+
     .food {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        height: 360px !important;
+        height: 360px;
         margin-bottom: 30px;
     }
 
@@ -502,8 +506,12 @@
         width: 90%;
     }
 
+    .foods__wrapper .slick-slide {
+        height: 300px;
+    }
+
     .food {
-        height: 300px !important;
+        height: 100%;
     }
 
     .food__title {

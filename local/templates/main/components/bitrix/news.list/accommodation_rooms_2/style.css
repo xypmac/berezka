@@ -18,7 +18,7 @@
 }
 
 .popup__modal {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 20%;
     width: 60%;
@@ -29,6 +29,8 @@
     opacity: 1;
     overflow: auto;
 }
+
+
 
 .popup__close {
     display: block;
@@ -47,6 +49,10 @@
 .numbers {
     position: relative;
     padding: 70px 0;
+}
+
+.numbers .slick-slider{
+    position: fixed;
 }
 
 .numbers::before,
@@ -834,9 +840,6 @@
         background-size: 40px;
     }
 
-
-    
-
     .numbers {
         padding: 60px 0;
     }
@@ -930,6 +933,9 @@
         padding: 0;
         margin-left: 0;
     }
+    .hotelroom__gallery .slick-slider {
+        position: relative;
+    }
 
     .hotelroom__prev {
         display: none;
@@ -940,10 +946,13 @@
         height: 300px;
         display: block;
     }
+    .hotelroom__images .slick-slide {
+        min-height: 300px;
+    }
 
     .hotelroom__item {
         width: 100%;
-        height: 300px !important;
+        height: 300px;
     }
 	.hotelroom__item:not(:last-child) {
 		margin-right: 0;
