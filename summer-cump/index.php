@@ -59,6 +59,7 @@ $bannerFilter = ['PROPERTY_LIST_SECTION' => '42'];
         "AJAX_OPTION_STYLE" => "Y",
         "AJAX_OPTION_HISTORY" => "N",
         "AJAX_OPTION_ADDITIONAL" => ""
+        
     )
 );?>
 <?
