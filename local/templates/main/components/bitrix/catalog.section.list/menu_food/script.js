@@ -45,7 +45,7 @@ $(document).ready(function(){
             $(this).fadeOut();
             $('.header').css({'z-index': '1'});
             $('.foods__wrapper').css({'z-index': '1'});
-            $('body').css({'overflow': 'auto'});					
+            $('body').css({'overflow': 'auto'});                    
         }
 
     });
