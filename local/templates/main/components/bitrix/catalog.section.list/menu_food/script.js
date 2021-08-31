@@ -8,6 +8,10 @@ $(document).ready(function(){
         arrows: false
     };
 
+    $(document).on('click', '.food', function(){
+
+    });
+/*
     // открыть popup
     $(document).on('click', '.food', function(){
         $('.header').css({'z-index': '-1'});
@@ -26,7 +30,7 @@ $(document).ready(function(){
         $('body').css({'overflow': 'auto'});
         return false;
     });
-   
+   */
     
     // Закрытие по клавише Esc.
     $(document).keydown(function(e) {

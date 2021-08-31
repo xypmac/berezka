@@ -17,300 +17,83 @@ CJSCore::Init(array("jquery"));
 <section class="section-rooms">
     <div class="container">
         <div class="row">
-            <h2 class="rooms__title">Номера для проживания</h2>
+            <h2 class="rooms__title"><?=$arResult['NAME'];?></h2>
         </div>
     </div>
     <div class="container-fluid">
+        <?if (!empty($arResult['SECTION_INFO'])) {?>
         <div class="row">
             <div class="rooms__buttons">
-                <div class="rooms__button" id="сaitshelter">"Кошкин дом"</div>
-                <div class="rooms__button rooms__button-active" id="housing">В корпусах</div>
-                <div class="rooms__button" id="withoutShelter">Дневное прибывание</div>
+                <?
+                $i = 0;
+                foreach ($arResult['SECTION_INFO'] as $idSec => $nameSec) {
+                ?>
+                    <div class="rooms__button <?if ($i == 0) echo 'rooms__button-active';?>" id="typerooms-<?=$idSec;?>"><?=$nameSec;?></div>
+                <?
+                $i++;
+                }
+                unset($i);
+                ?>
             </div>
         </div>
+        <?}?>
         <div class="row">
-            <div class="rooms__wrapper" id="сaitshelter">
+            <?foreach ($arResult['FILTER_ELEM'] as $idSec => $arrElem) {?>
+            <div class="rooms__wrapper" id="typerooms-<?=$idSec;?>">
+                <?foreach ($arrElem as $key => $roomItem) {?>
                 <div class="rooms__item">
                     <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img1.jpg" alt="" class="room__img">
+                        <img src="<?=$roomItem['PREVIEW_PICTURE']['SRC'];?>" alt="<?=$roomItem['PREVIEW_PICTURE']['ALT'];?>" class="room__img">
                         <div class="room__wrapper">
-                            <p class="room__title">4-х комнатный номер. Family room</p>
+                            <p class="room__title"><?=$roomItem['NAME'];?></p>
                             <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">2-х местный </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">2 односпальных кровати </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">16 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1200 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img2.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">2-х комнатный номер «Люкс» №5</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">4-х местный номер </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">4 односпальных кровати</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">40 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1800 руб./сут.</button>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img3.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">2-х комнатный номер «Люкс» №1.</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">4-х места + доп. места </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">4 односпальных кровати</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">на этаже </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">19 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1800 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img1.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">Номер «Люкс» №2.</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">2-х местный </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">2 односпальных кровати </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">16 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1200 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
+                                <?if (!empty($roomItem['PROPERTIES']['QUANTITY']['VALUE'])) {?>
+                                    <li class="room__item">
+                                        <span class="room__icon persons"></span>
+                                        <span class="room__text"><?=$roomItem['PROPERTIES']['QUANTITY']['VALUE'];?></span>
+                                    </li>
+                                <?}?>
 
+                                <?if (!empty($roomItem['PROPERTIES']['BEDS']['VALUE'])) {?>
+                                    <li class="room__item">
+                                        <span class="room__icon bed"></span> <span class="room__text"><?=$roomItem['PROPERTIES']['BEDS']['VALUE'];?></span>
+                                    </li>
+                                <?}?>
+
+                                <?if (!empty($roomItem['PROPERTIES']['BATHROOM']['VALUE'])) {?>
+                                <li class="room__item">
+                                    <span class="room__icon shower"></span> <span class="room__text"><?=$roomItem['PROPERTIES']['BATHROOM']['VALUE'];?></span>
+                                </li>
+                                <?}?>
+
+                                <?if (!empty($roomItem['PROPERTIES']['AREA']['VALUE'])) {?>
+                                    <li class="room__item">
+                                        <span class="room__icon square"></span> <span class="room__text"><?=$roomItem['PROPERTIES']['AREA']['VALUE'];?> м<sup>2</sup></span>
+                                    </li>
+                                <?}?>
+
+                                <?if ($roomItem['PROPERTIES']['PARKING']['VALUE'] == 'Да') {?>
+                                    <li class="room__item">
+                                        <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка</span>
+                                    </li>
+                                <?}?>
+
+                                <?if ($roomItem['PROPERTIES']['EXTRA_SPACE']['VALUE'] == 'Да') {?>
+                                    <li class="room__item">
+                                        <span class="room__icon seat"></span> <span class="room__text">Дополнительное место</span>
+                                    </li>
+                                <?}?>
+                            </ul>
+                            <?if (!empty($roomItem['PROPERTIES']['PRICE']['VALUE'])) {?>
+                                <button class="room__button"><?=$roomItem['PROPERTIES']['PRICE']['VALUE'];?> руб./сут.</button>
+                            <?}?>
+                        </div>
+                    </div>
+                </div>
+                <?}?>
             </div>
-            <div class="rooms__wrapper" id="housing">
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img4.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">4-х местный номер в корпусах №№1,2,3</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">2-х местный </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">2 односпальных кровати </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">16 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1200 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img5.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">4-х местный номер в корпусе №5</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">4-х местный номер </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">4 односпальных кровати</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">40 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1800 руб./сут.</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img4.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">2-х местный номер в корпусе №6</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">2-х местный </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">2 односпальных кровати </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">16 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1200 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img5.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">2-х местный номер в корпусах №1, №2 и №3</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">4-х местный номер </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">4 односпальных кровати</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">Душевая кабинка</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">40 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1800 руб./сут.</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img6.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">4-х местный номер в корпусе №5 </p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">4-х места + доп. места </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">4 односпальных кровати</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon shower"></span> <span class="room__text">на этаже </span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon square"></span> <span class="room__text">19 м <sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1800 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="rooms__wrapper" id="withoutShelter">
-                <div class="rooms__item">
-                    <div class="room">
-                        <img src="<?= $templateFolder ?>/img/img7.jpg" alt="" class="room__img">
-                        <div class="room__wrapper">
-                            <p class="room__title">Дневное пребывание</p>
-                            <ul class="room__list">
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span>
-                                    <span class="room__text">На одного человека</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon bed"></span> <span class="room__text">Без спального места</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon wc"></span> <span class="room__text">Туалет 1</span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon playground"></span> <span class="room__text">Детская площадка<sup>2</sup></span>
-                                </li>
-                                <li class="room__item">
-                                    <span class="room__icon parking"></span> <span class="room__text">Бесплатная парковка  </span>
-                                </li>
-                            </ul>
-                            <button class="room__button">1200 руб./сут.</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?}?>
         </div>
     </div>
     <div class="popup__fade">

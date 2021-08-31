@@ -18,8 +18,11 @@ CJSCore::Init(array("jquery"));
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-10 teachers__list">
-                <?foreach ($arResult['ITEMS'] as $k => $v) {?>
-                <div class="teachers__item teacher" data-id="0">
+                <?
+                $i = 0;
+                foreach ($arResult['ITEMS'] as $k => $v) {
+                ?>
+                <div class="teachers__item teacher" data-id="<?=$i;?>">
                     <div class="teacher__img-wrapper">
                         <img class="teacher__img" src="<?=$v['PREVIEW_PICTURE']['SRC'];?>" alt="<?=$v['PREVIEW_PICTURE']['ALT'];?>">
                     </div>
@@ -34,7 +37,9 @@ CJSCore::Init(array("jquery"));
                         <?}?>
                     </div>
                 </div>
-                <?}?>
+                <?
+                    $i++;
+                }?>
             </div>
             <div class="teachers__popup popup-fade">
                 <div class="popup">

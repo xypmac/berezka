@@ -30,7 +30,8 @@ $foodType = ['UF_LOCATION_FOOD' => '1'];
         "CACHE_TYPE" => "N",
         "CACHE_TIME" => "36000000",
         "CACHE_NOTES" => "",
-        "CACHE_GROUPS" => "Y"
+        "CACHE_GROUPS" => "Y",
+        "VIEW_MODE" => "LINE"
     )
 );?>
 
@@ -63,7 +64,8 @@ $foodType = ['UF_LOCATION_FOOD' => '2'];
         "CACHE_TYPE" => "N",
         "CACHE_TIME" => "36000000",
         "CACHE_NOTES" => "",
-        "CACHE_GROUPS" => "Y"
+        "CACHE_GROUPS" => "Y",
+        "VIEW_MODE" => "LINE"
     )
 );?>
 
