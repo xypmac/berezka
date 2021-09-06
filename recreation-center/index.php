@@ -119,17 +119,77 @@ $APPLICATION->IncludeComponent("bitrix:news.list","accommodation_rooms",Array(
     )
 );?>
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/recreation_center_food.php"
-    )
-);?>
+<?
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/entertainment.php"
-    )
-);?>
+$dbItems = \Bitrix\Iblock\IblockTable::getList(array(
+    'order' => array('SORT' => 'ASC'), // сортировка
+    'select' => array('ID', 'NAME', 'CODE', 'API_CODE', 'LIST_PAGE_URL', 'DESCRIPTION'), // выбираемые поля, без свойств. Свойства можно получать на старом ядре \CIBlockElement::getProperty
+    'filter' => array('ID' => [22, 26, 27]), // фильтр только по полям элемента, свойства (PROPERTY) использовать нельзя
+    'cache' => array( // Кеш запроса, почему-то в офф. документации об этом умалчивают
+        'ttl' => 3600,
+        'cache_joins' => true
+    ),
+));
+
+while ($arItem = $dbItems->fetch()) {
+    $arrIblockList[$arItem['CODE']] = ['NAME' => $arItem['NAME'], 'LIST_PAGE_URL' => $arItem['LIST_PAGE_URL'], 'DESCRIPTION' => $arItem['DESCRIPTION']];
+}
+?>
+
+<section class="section-nutrition">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nutrition__wrapper nutrition__wrapper-recreation">
+                <div class="nutrition">
+                    <div class="section__title nutrition__title">
+                        <h3 class="section__title-text nutrition__title-text"><?=$arrIblockList['food']['NAME'];?></h3>
+                        <span class="section__title-line nutrition__title-line"></span>
+                    </div>
+                    <div class="nutrition__text">
+                        <?=$arrIblockList['food']['DESCRIPTION'];?>
+
+                    </div>
+                    <a href="<?=$arrIblockList['food']['LIST_PAGE_URL'];?>" class="button button-transparent nutrition__button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="parts parts-recreation">
+    <div class="container">
+        <div class="row">
+            <h2 class="parts__title">Развлечения и досуг</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-11  parts__wrapper parts__wrapper-recreation">
+                <div class="parts__item part part-services">
+                    <div class="part__title">
+                        <h3 class="part__text"><?=$arrIblockList['additionalservice']['NAME']?></h3>
+                        <a href="<?=$arrIblockList['additionalservice']['LIST_PAGE_URL']?>" class="arrows-container">
+                            <span class="arrow arrow-one"></span>
+                            <span class="arrow arrow-two"></span>
+                            <span class="arrow arrow-three"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="parts__item part part-event">
+                    <div class="part__title">
+                        <h3 class="part__text"><?=$arrIblockList['happyevent']['NAME']?></h3>
+                        <a href="<?=$arrIblockList['happyevent']['LIST_PAGE_URL']?>" class="arrows-container">
+                            <span class="arrow arrow-one"></span>
+                            <span class="arrow arrow-two"></span>
+                            <span class="arrow arrow-three"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?
 $infrastructureFilter = ['PROPERTY_WHERE' => '45'];
 ?>

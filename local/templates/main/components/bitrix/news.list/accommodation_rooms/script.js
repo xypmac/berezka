@@ -49,8 +49,6 @@ $(document).ready(function(){
             }
         ]
     }
-
-    $('.popup__modal').append('<a class="popup__close" href="/"><i class="bi bi-x "></i></a>');
         
     $('.rooms__wrapper#'+id).slick(setting);
 

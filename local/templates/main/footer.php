@@ -127,5 +127,15 @@
             </div>
         </div>
     </footer>
+    <?
+    $APPLICATION->IncludeComponent(
+        'bitrix:main.include',
+        '.default',
+        [
+            'AREA_FILE_SHOW' => 'file',
+            'PATH' => '/include/ajax_preloader.php'
+        ]
+    )
+    ?>
 </body>
 </html>

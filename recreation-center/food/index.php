@@ -2,11 +2,40 @@
 $APPLICATION->SetTitle("Питание");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/summer_cump_food_1.php"
-    )
-);?>
+<?
+Bitrix\Main\Loader::includeModule('iblock');
+$dbItems = \Bitrix\Iblock\IblockTable::getList(array(
+    'order' => array('SORT' => 'ASC'), // сортировка
+    'select' => array('ID', 'NAME', 'CODE', 'API_CODE', 'LIST_PAGE_URL', 'DESCRIPTION'), // выбираемые поля, без свойств. Свойства можно получать на старом ядре \CIBlockElement::getProperty
+    'filter' => array('ID' => 22), // фильтр только по полям элемента, свойства (PROPERTY) использовать нельзя
+    'cache' => array( // Кеш запроса, почему-то в офф. документации об этом умалчивают
+        'ttl' => 3600,
+        'cache_joins' => true
+    ),
+));
+
+while ($arItem = $dbItems->fetch()) {
+    $arrIblockList[$arItem['CODE']] = ['NAME' => $arItem['NAME'], 'LIST_PAGE_URL' => $arItem['LIST_PAGE_URL'], 'DESCRIPTION' => $arItem['DESCRIPTION']];
+}
+?>
+
+<section class="section-nutrition">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nutrition__wrapper nutrition__wrapper-table">
+                <div class="nutrition">
+                    <div class="section__title nutrition__title">
+                        <h3 class="section__title-text nutrition__title-text"><?=$arrIblockList['food']['NAME'];?></h3>
+                        <span class="section__title-line nutrition__title-line"></span>
+                    </div>
+                    <div class="nutrition__text">
+                        <?=$arrIblockList['food']['DESCRIPTION'];?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?
 $foodType = ['UF_LOCATION_FOOD' => '1'];
@@ -30,17 +59,32 @@ $foodType = ['UF_LOCATION_FOOD' => '1'];
         "CACHE_TYPE" => "N",
         "CACHE_TIME" => "36000000",
         "CACHE_NOTES" => "",
-        "CACHE_GROUPS" => "Y"
+        "CACHE_GROUPS" => "Y",
+        "VIEW_MODE" => "LINE"
     )
 );?>
 
-
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/summer_cump_food_2.php"
-    )
-);?>
-
+<section class="section-nutrition">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nutrition__wrapper nutrition__wrapper-banquet">
+                <div class="nutrition nutrition-orange nutrition-right">
+                    <div class="section__title nutrition__title">
+                        <h3 class="section__title-text nutrition__title-text">Банкеты и фуршеты</h3>
+                        <span class="section__title-line nutrition__title-line"></span>
+                    </div>
+                    <div class="nutrition__text">
+                        <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => "/include/summer_cump_food_2.php"
+                            )
+                        );?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <?
 $foodType = ['UF_LOCATION_FOOD' => '2'];
 ?>
@@ -63,14 +107,31 @@ $foodType = ['UF_LOCATION_FOOD' => '2'];
         "CACHE_TYPE" => "N",
         "CACHE_TIME" => "36000000",
         "CACHE_NOTES" => "",
-        "CACHE_GROUPS" => "Y"
+        "CACHE_GROUPS" => "Y",
+        "VIEW_MODE" => "LINE"
     )
 );?>
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/summer_cump_food_3.php"
-    )
-);?>
-
+<section class="section-nutrition">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nutrition__wrapper nutrition__wrapper-buffet">
+                <div class="nutrition nutrition-blue">
+                    <div class="section__title nutrition__title">
+                        <h3 class="section__title-text nutrition__title-text">Банкеты и фуршеты</h3>
+                        <span class="section__title-line nutrition__title-line"></span>
+                    </div>
+                    <div class="nutrition__text">
+                        <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => "/include/summer_cump_food_3.php"
+                            )
+                        );?>
+                    </div>
+                    <a href="/recreation-center/food/banquets-and-buffets/" class="button button-transparent nutrition__button nutrition__button-blue">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

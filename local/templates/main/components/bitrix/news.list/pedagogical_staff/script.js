@@ -35,6 +35,7 @@ $(document).ready(function(){
         $('.popup').resize();
         $('body').css({'overflow': 'hidden'});
         clearTimeout(timeout);
+        console.log($('body').data('num'));
         $('.popup').slick({
             initialSlide: $('body').data('num'),
             infinite: true,

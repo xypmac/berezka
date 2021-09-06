@@ -122,7 +122,6 @@ div.mf-ok-text {color:green; font-weight:bold; padding-bottom: 1em;} */
     color: #fff;
     background: #ef5a28;
 }
-
 @media (max-width: 1199.98px) {
     .form__wrapper {
         width: 50%;

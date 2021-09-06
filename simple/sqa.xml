@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Report>
+	<Id>20210209A</Id>
+	<Version>1</Version>
+	<User>9001GG000002</User>
+	<ReportCreated>25.08.2021 05:46:39</ReportCreated>
+	<Persons>
+		<Person uid="8527">
+			<Name s="ДМИТРИЕВ" n="АНДРЕЙ" m="АНАТОЛЬЕВИЧ" d="06.11.1970"/>
+			<Passport pn="9405333939" pd="16.11.2015"/>
+			<Passport pn="9403280449" pd="01.08.2003"/>
+			<Passport pn="9415533939" pd="16.11.2015"/>
+			<OwnAccount mc="9001GG000001" n="041806"/>
+			<OwnAccount mc="9001GG000001" n="030127"/>
+			<OwnAccount mc="9001GG000001" n="030166"/>
+			<OwnAccount mc="9001GG000001" n="033096"/>
+			<OwnAccount mc="9001GG000001" n="033030"/>
+			<OwnAccount mc="9001GG000001" n="033047"/>
+			<OwnAccount mc="9001GG000001" n="037007"/>
+			<OwnAccount mc="9001GG000001" n="041839"/>
+			<OwnAccount mc="9001GG000001" n="041886"/>
+			<OwnAccount mc="9001GG000001" n="027595"/>
+			<OwnAccount mc="9001GG000001" n="027514"/>
+			<OwnAccount mc="9001GG000001" n="045460"/>
+			<OwnAccount mc="9001GG000001" n="049620"/>
+			<OwnAccount mc="9001GG000001" n="049683"/>
+			<OwnAccount mc="9001GG000001" n="053390"/>
+			<OwnAccount mc="9001GG000001" n="056748"/>
+			<OwnAccount mc="9001GG000001" n="049666"/>
+			<OwnAccount mc="9001GG000001" n="053356"/>
+			<OwnAccount mc="9001GG000001" n="061468"/>
+			<OwnAccount mc="9001GG000001" n="ААМ0-00000212"/>
+			<Credit own="1" mc="9001GG000001" n="061468" type="10" limit="5500000" open="09.07.2020" close_plan="19.08.2021" close_fact="19.08.2021" currency="RUB" balance="6221349" mop="1" past_due="0" status="13" serial_num="496964441" owner_indic="4" outstanding="0" next_paymt="0" acct_uid="82089281-c1aa-11ea-a4de-88d7f67ae785-a" status_dt="19.08.2021" report_dt="19.08.2021">
+				<Signal n="10"/>
+				<Signal n="13"/>
+			</Credit>
+		</Person>
+	</Persons>
+</Report>

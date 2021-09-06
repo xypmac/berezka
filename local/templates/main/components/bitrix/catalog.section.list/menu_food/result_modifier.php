@@ -67,6 +67,7 @@ if (0 < $arResult['SECTIONS_COUNT'])
 			$arSelect[] = 'DESCRIPTION_TYPE';
 		}
 	}
+
 	if ($boolPicture || $boolDescr)
 	{
 		foreach ($arResult['SECTIONS'] as $key => $arSection)
@@ -145,7 +146,7 @@ if (!empty($arrIdsSection)) {
                 //\Bitrix\Main\Diag\Debug::dump($element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']);
                 $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']]['NAME'] = $element['NAME'];
                 if (!empty($arrOffersMainMenu[$element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']])) {
-                    $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']][] = $arrOffersMainMenu[$element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']];
+                    $arResult['SECTIONS'][$keySec]['ELEMENT_MENU'][$element['ID']]['LIST_DISHES'][] = $arrOffersMainMenu[$element['ELEMENT_MENU_IBLOCK_GENERIC_VALUE']];
                 }
             }
         }
