@@ -1,7 +1,4 @@
 /*section foods */
-.popup__fade {
-    display: none;
-}
 
 .popup__fade::before {
     content: '';

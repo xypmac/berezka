@@ -119,18 +119,12 @@ $APPLICATION->IncludeComponent("bitrix:news.list","accommodation_rooms",Array(
     )
 );?>
 
-<?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => "/include/recreation_center_food.php"
-    )
-);?>
-
 <?
 
 $dbItems = \Bitrix\Iblock\IblockTable::getList(array(
     'order' => array('SORT' => 'ASC'), // сортировка
-    'select' => array('ID', 'NAME', 'CODE', 'API_CODE', 'LIST_PAGE_URL'), // выбираемые поля, без свойств. Свойства можно получать на старом ядре \CIBlockElement::getProperty
-    'filter' => array('ID' => [26, 27]), // фильтр только по полям элемента, свойства (PROPERTY) использовать нельзя
+    'select' => array('ID', 'NAME', 'CODE', 'API_CODE', 'LIST_PAGE_URL', 'DESCRIPTION'), // выбираемые поля, без свойств. Свойства можно получать на старом ядре \CIBlockElement::getProperty
+    'filter' => array('ID' => [22, 26, 27]), // фильтр только по полям элемента, свойства (PROPERTY) использовать нельзя
     'cache' => array( // Кеш запроса, почему-то в офф. документации об этом умалчивают
         'ttl' => 3600,
         'cache_joins' => true
@@ -138,9 +132,29 @@ $dbItems = \Bitrix\Iblock\IblockTable::getList(array(
 ));
 
 while ($arItem = $dbItems->fetch()) {
-    $arrIblockList[$arItem['CODE']] = ['NAME' => $arItem['NAME'], 'LIST_PAGE_URL' => $arItem['LIST_PAGE_URL']];
+    $arrIblockList[$arItem['CODE']] = ['NAME' => $arItem['NAME'], 'LIST_PAGE_URL' => $arItem['LIST_PAGE_URL'], 'DESCRIPTION' => $arItem['DESCRIPTION']];
 }
 ?>
+
+<section class="section-nutrition">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nutrition__wrapper nutrition__wrapper-recreation">
+                <div class="nutrition">
+                    <div class="section__title nutrition__title">
+                        <h3 class="section__title-text nutrition__title-text"><?=$arrIblockList['food']['NAME'];?></h3>
+                        <span class="section__title-line nutrition__title-line"></span>
+                    </div>
+                    <div class="nutrition__text">
+                        <?=$arrIblockList['food']['DESCRIPTION'];?>
+
+                    </div>
+                    <a href="<?=$arrIblockList['food']['LIST_PAGE_URL'];?>" class="button button-transparent nutrition__button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="parts parts-recreation">
     <div class="container">

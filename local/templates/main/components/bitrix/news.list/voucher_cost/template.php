@@ -54,7 +54,7 @@ if (!empty($arResult['ITEMS'])) {
                 </div>
             </article>
             <?
-        }   else {
+        } else {
             ?>
             <article class="article-notes lines-two">
                 <div class="container">

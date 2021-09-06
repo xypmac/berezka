@@ -7024,6 +7024,7 @@ body {
 .message__wrapper .message__button {
     color: #00acec;
     border: 1px solid #00acec;
+    cursor:pointer;
 }
 
 .message__wrapper .message__button:hover {

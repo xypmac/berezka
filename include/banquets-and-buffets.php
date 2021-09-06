@@ -1,9 +1,9 @@
-<section class="section-notes">
-    <div class="container">
-        <div class="row">
-            <h2 class="notes__title">Банкеты и фуршеты</h2>
-        </div>
+<div class="container">
+    <div class="row">
+        <h2 class="notes__title">Банкеты и фуршеты</h2>
     </div>
+</div>
+<section class="section-notes">
     <article class="article-notes lines-two">
         <div class="container">
             <div class="row">

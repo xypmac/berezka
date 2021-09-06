@@ -1,4 +1,59 @@
-$(document).ready(function(){ 
+
+function call_menu_window(sectionId) {
+    let modal = BX('modal-window'),
+        body = document.body,
+        header = BX.findChildrenByClassName(body, 'header');
+    if (modal === null) {
+        BX.ready(function(){
+            let modalContainer = BX.create('div', {
+                attrs: {
+                    id: 'modal-window'
+                },
+            });
+            BX.append(modalContainer, body);
+            BX.ajax.insertToNode(
+                '/include/ajax/modal_menu_callme.php?id_section='+sectionId+'',
+                modalContainer,
+            );
+            BX.style(body, 'overflow', 'hidden');
+            BX.style(header[0], 'z-index', '1');
+        });
+    } else return false;
+}
+
+BX.ready(function(){
+
+    let body = document.body,
+        header = BX.findChildrenByClassName(body, 'header');
+
+    BX.bindDelegate(
+        body, 'click', {className: 'meal__close' },
+        function(e){
+            if(!e) {
+                e = window.event;
+            }
+            BX.remove(BX('modal-window'));
+            BX.style(body, 'overflow', 'auto');
+            BX.style(header[0], 'z-index', '99');
+            return BX.PreventDefault(e);
+        }
+    );
+
+    BX.bindDelegate(
+        body, 'click', {className: 'meal__fade' },
+        function(e){
+            if(!e) {
+                e = window.event;
+            }
+            BX.remove(BX('modal-window'));
+            BX.style(body, 'overflow', 'auto');
+            BX.style(header[0], 'z-index', '99');
+            return BX.PreventDefault(e);
+        }
+    );
+});
+
+$(document).ready(function(){
 
 
     let setting = {
@@ -7,10 +62,6 @@ $(document).ready(function(){
         slidesToScroll: 1,
         arrows: false
     };
-
-    $(document).on('click', '.food', function(){
-
-    });
 /*
     // открыть popup
     $(document).on('click', '.food', function(){
@@ -30,7 +81,7 @@ $(document).ready(function(){
         $('body').css({'overflow': 'auto'});
         return false;
     });
-   */
+
     
     // Закрытие по клавише Esc.
     $(document).keydown(function(e) {
@@ -53,7 +104,7 @@ $(document).ready(function(){
         }
 
     });
-  
+  */
   
     function windowSize(){
         if ($(window).width() < '575.98'){
@@ -68,7 +119,7 @@ $(document).ready(function(){
             }
         }
     }
-  
+
     $(window).on('load resize',windowSize); 
 
 

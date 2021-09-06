@@ -145,6 +145,7 @@ CJSCore::Init(array("jquery"));
                 <button class="room__button hotelroom__button">1200 руб./сут.</button>
                 <button class="room__button hotelroom__button hotelroom__button-white">Забронировать</button>
             </div>
+            <a class="popup__close" href="/"><i class="bi bi-x "></i></a>
         </div>
     </div>
 </section>
