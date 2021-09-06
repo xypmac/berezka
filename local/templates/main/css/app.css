@@ -7665,12 +7665,14 @@ body {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+    flex-wrap: wrap;
     margin-top: 50px;
     position: relative;
 }
 
 .place__item {
-    width: calc(100% / 2 - 100px -2%);
+    width: calc(100% / 2 - 100px - 2%);
+    margin-bottom: 120px;
 }
 
 .place__item:first-child {
@@ -7678,7 +7680,7 @@ body {
     margin-right: 2%;
 }
 
-.place__item:last-child {
+.place__item:nth-child(2n) {
     -webkit-transform: translate(0, -80px);
     -ms-transform: translate(0, -80px);
     transform: translate(0, -80px);
